@@ -1,3 +1,4 @@
+from django.shortcuts import redirect	# +8) Добавь эту строку в начало файла
 from django.shortcuts import render
 from django.utils import timezone   # +2)
 from .models import Post    # +1)
@@ -16,9 +17,9 @@ def post_detail(request, pk):   # +6)
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
 
-# def post_new(request): # +8)
-#    form = PostForm()
-#    return render(request, 'blog/post_edit.html', {'form': form})
+# - def post_new(request): # +8)
+# -    form = PostForm()
+# -    return render(request, 'blog/post_edit.html', {'form': form})
 
 def post_new(request): # +9)
     if request.method == "POST":
